@@ -1,3 +1,4 @@
+/* General CSS. Responsive overrides are towards the bottom of the file. */
 * {
   margin: 0;
 }
@@ -8,6 +9,14 @@ html, body {
 
 #header {
   padding: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, .8);
 }
 
 #header ul {
@@ -20,28 +29,124 @@ html, body {
 #header ul li {
   display: inline-block;
   padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#header ul li a {
+  color: black;
+  text-decoration: none;
+  font-family: Merriweather, georgia, serif;
+  font-size: 1.5em;
+  font-weight: 300;
 }
 
 #main {
-  min-height: 100%;
-  margin-bottom: -70px;
+  margin-top: 62px;
 }
 
 #main #content {
   width: 70%;
   float: left;
+  text-align: center;
+}
+
+#main #content .content-wrapper {
+  max-width: 848px;
+  margin: 0 auto;
+}
+
+.card {
+  display: inline-block;
+  padding: 5px;
+  width: 270px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.card img {
+  width: calc(100% - 10px);
+  margin-bottom: 1em;
+}
+
+.card h2 {
+  color: #1a1a1a;
+  font-size: 1.5em;
+  font-weight: 300;
+  font-family: Merriweather, georgia, serif;
+  text-align: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: .25em;
+  padding-bottom: 3px;
+}
+
+.card p {
+  font-size: 1em;
+  color: #777;
+  text-align: left;
+  font-family: helvetica, arial, sans-serif;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #main #sidebar {
   width: 30%;
   float: left;
+  font-family: Merriweather, georgia, serif;
+  font-weight: 300;
 }
 
 #footer {
   text-align: center;
   padding: 5px;
+  font-family: Merriweather, georgia, serif;
+  font-size: 1em;
+  font-weight: 300;
+  border-top: 1px solid #ccc;
 }
 
-#footer, .push {
-  height: 70px;
+.clear {
+  clear: both;
+}
+
+/* Override certain properties for smaller screens */
+@media (max-width: 600px) {
+  #header ul li {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .card {
+    padding: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .card img {
+    width: calc(100% - 20px);
+    margin-bottom: 1em;
+  }
+
+  .card h2 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .card p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+/* Specific to bigger screens only */
+@media (min-width: 601px) {
+  /* Smaller devices are generally touch screens, so 'hover' mode is pointless */
+  #header ul li:hover a {
+    text-decoration: underline;
+  }
 }
