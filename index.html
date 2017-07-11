@@ -9,16 +9,17 @@
 
   <title>UI Exercise</title>
 </head>
-<body>
+<body class="no-transition">
   <div id="header">
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/blog">Blog</a></li>
+      <li><a id="sidebar_button">Sidebar</a></li>
     </ul>
   </div>
   <div id="main">
-    <div id="content">
+    <div id="content" class="large">
       <div class="content-wrapper">
         <div class="card">
           <img src="images/vlisco.jpg" />
@@ -52,8 +53,8 @@
         </div>
       </div>
     </div>
-    <div id="sidebar">
-      The sidebar
+    <div id="sidebar" class="hidden">
+      <p>The sidebar</p>
     </div>
     <div class="clear"></div>
   </div>

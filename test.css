@@ -5,6 +5,11 @@
 
 html, body {
   height: 100%;
+  overflow-x: hidden;
+}
+
+.no-transition * {
+  animation: none !important;
 }
 
 #header {
@@ -46,9 +51,22 @@ html, body {
 }
 
 #main #content {
-  width: 70%;
   float: left;
   text-align: center;
+  box-sizing: border-box;
+  border-right: 1px solid #ccc;
+}
+
+#main #content.large {
+  width: 100%;
+  animation-name: content-grow;
+  animation-duration: 1s;
+}
+
+#main #content.small {
+  width: 70%;
+  animation-name: content-shrink;
+  animation-duration: 1s;
 }
 
 #main #content .content-wrapper {
@@ -92,10 +110,25 @@ html, body {
 }
 
 #main #sidebar {
-  width: 30%;
   float: left;
   font-family: Merriweather, georgia, serif;
   font-weight: 300;
+}
+
+#main #sidebar p {
+  margin-left: 5px;
+}
+
+#main #sidebar.hidden {
+  width: 0%;
+  animation-name: sidebar-shrink;
+  animation-duration: 1s;
+}
+
+#main #sidebar.visible {
+  width: 30%;
+  animation-name: sidebar-grow;
+  animation-duration: 1s;
 }
 
 #footer {
@@ -109,6 +142,43 @@ html, body {
 
 .clear {
   clear: both;
+}
+
+/* Transitions to show/hide the sidebar */
+@keyframes content-shrink {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 70%;
+  }
+}
+
+@keyframes content-grow {
+  from {
+    width: 70%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes sidebar-grow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 30%;
+  }
+}
+
+@keyframes sidebar-shrink {
+  from {
+    width: 30%;
+  }
+  to {
+    width: 0%;
+  }
 }
 
 /* Override certain properties for smaller screens */
@@ -140,6 +210,13 @@ html, body {
   .card p {
     margin-left: 10px;
     margin-right: 10px;
+  }
+}
+
+/* Override certain properties for extremely small screens */
+@media (max-width: 373px) {
+  #main {
+    margin-top: 103px;
   }
 }
 
